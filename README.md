@@ -43,3 +43,10 @@ systemctl start sslocal-client@tproxy
 ./ss-tproxy.sh -p <PORT> -o start_self
 # remember to run ./xray-tproxy.sh(./ss-tproxy.sh) -p <PORT> -o stop_self when you don't want the traffic to be proxied.
 ```
+# Reference
+1. [Project X](https://xtls.github.io/)
+2. [Xray-core](https://github.com/XTLS/Xray-core)
+3. [Shadowsocks-libev](https://github.com/shadowsocks/shadowsocks-libev)
+4. [Shadowsocks-rust](https://github.com/shadowsocks/shadowsocks-rust)
+5. [ss-tproxy](https://github.com/zfl9/ss-tproxy)
+6. [Linux Capabilities](https://github.com/ContainerSolutions/capabilities-blog)
