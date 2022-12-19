@@ -29,12 +29,7 @@ Operation 1 and 2 only need to be run once.
 Only if the executable files changes, operation 2 will have to be run again.
 
 ---
-3. run xray or sslocal in tproxy mode
-```bash
-systemctl start xray-client@tproxy
-systemctl start sslocal-client@tproxy
-```
-4. add iptables rules and set policy routing
+3. add iptables rules and set policy routing
 ```bash
 # 'start_self' can proxy the traffic from host and other instances in LAN while 'start' can not proxy the traffic from host.
 # for xray
@@ -43,6 +38,12 @@ systemctl start sslocal-client@tproxy
 ./ss-tproxy.sh -p <PORT> -o start_self
 # remember to run ./xray-tproxy.sh(./ss-tproxy.sh) -p <PORT> -o stop_self when you don't want the traffic to be proxied.
 ```
+4. run xray or sslocal in tproxy mode
+```bash
+systemctl start xray-client@tproxy
+systemctl start sslocal-client@tproxy
+```
+
 # Reference
 1. [Project X](https://xtls.github.io/)
 2. [Xray-core](https://github.com/XTLS/Xray-core)
