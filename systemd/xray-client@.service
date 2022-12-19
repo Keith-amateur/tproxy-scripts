@@ -1,0 +1,12 @@
+[Unit]
+Description=Xray Client on %i
+After=network.target network-online.target
+Requires=network.target network-online.target
+
+[Service]
+Type=simple
+User=proxy
+ExecStart=/usr/local/bin/xray -config /usr/local/etc/xray/%i.json
+
+[Install]
+WantedBy=multi-user.target
