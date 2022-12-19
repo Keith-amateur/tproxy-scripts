@@ -1,0 +1,27 @@
+{
+    "no_delay": true,
+    "fase_open": true,
+    "servers": [
+        {
+            "server": "X.X.X.X",
+            "server_port": 65535,
+            "password": "xxxxxx",
+            "method": "XXXXX",
+            "timeout": 300,
+            "mode": "tcp_and_udp"
+        }
+    ],
+    "locals": [
+        {
+            "protocol": "redir",
+            "tcp_redir": "tproxy",
+            "udp_redir": "tproxy",
+            "local_address": "127.0.0.1",
+            "local_port": 10080,
+            "mode": "tcp_and_udp"
+        }
+    ],
+    "log": {
+        "level": 1
+    }
+}
