@@ -90,8 +90,10 @@ del_ss_rule() {
 
 add_ss_prerouting() {
 	iptables -t mangle -N SS_PREROUTING
+	# handle packets with mark from OUTPUT 
 	iptables -t mangle -A SS_PREROUTING -i lo -m mark ! --mark 0x233 -j RETURN
 	iptables -t mangle -A SS_PREROUTING -p tcp -m addrtype ! --src-type LOCAL ! --dst-type LOCAL -j SS_RULE
+	iptables -t mangle -A SS_PREROUTING -p udp -m addrtype ! --src-type LOCAL ! --dst-type LOCAL -j SS_RULE
 	iptables -t mangle -A SS_PREROUTING -p tcp -m mark --mark 0x233 -j TPROXY --on-port "$proxy_port" --on-ip 127.0.0.1
 	iptables -t mangle -A SS_PREROUTING -p udp -m mark --mark 0x233 -j TPROXY --on-port "$proxy_port" --on-ip 127.0.0.1
 	iptables -t mangle -A PREROUTING -j SS_PREROUTING
