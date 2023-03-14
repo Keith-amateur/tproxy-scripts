@@ -30,6 +30,12 @@ Only if the executable files changes, operation 2 will have to be run again.
 3. add iptables rules and set policy routing
 ```bash
 ./ipt-rules.sh -p <proxy_port> -m <proxy_mode_number> -o <start|stop|status>
+	## proxy taffic from others
+	    # mode 1: tcp-tproxy(chain PREROUTING table mangle) udp-tproxy(chain PREROUTING table mangle)
+	    # mode 2: tcp-redir(chain PREROUTING table nat)  udp-tproxy(chain PREROUTING table mangle)
+	## proxy traffic from host(self)
+	    # mode 3: tcp-tproxy(chain PREROUTING,OUTPUT table mangle) udp-tproxy(chain PREROUTING,OUTPUT table mangle)
+	    # mode 4: tcp-redir(chain OUTPUT table nat) udp-tproxy(chain PREROUTING,OUTPUT table mangle)
 ```
 
 # Reference
